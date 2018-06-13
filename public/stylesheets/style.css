@@ -1,0 +1,162 @@
+[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[name=""]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+.container {
+  text-align: center;
+  width: 100%;
+}
+fieldset {
+  font-size: large;
+  width: 800px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+label {
+  margin: 0 5px 0 5px ;
+}
+span {
+  font-size: large;
+  color: red;
+  font-weight: normal;
+}
+.note {
+  float: left;
+  font-size: small;
+  font-weight: bold;
+}
+.selectgraphs {
+  font-size: small;
+  font-weight: bold;
+  float: right;
+}
+body {
+  margin: 0;
+  padding: 1em 4em 4em 4em;
+  background: #e5e5e5;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+.title {
+  font-size: x-large;
+  font-weight: bold;
+  text-align:center;
+}
+.tabtitle {
+  font-size: large;
+  font-weight: bold;
+  text-align:left;
+  color: black;
+  background-color: unset;
+  opacity: 1;
+}
+input, select {
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  width: 170px;
+  text-align: center;
+  font-size: large;
+}
+table
+{
+ border:none;
+ border-collapse: collapse;
+ border-spacing:0px;
+ padding:0px;
+ width: 100%;
+}
+table td
+{ 
+ padding: 10px;
+ font-size: large;
+ text-align:center;
+ white-space:pre;
+ height: 42px;
+ line-height: 20px;
+ border-left: 1px solid #808080;
+ border-right: 1px solid #808080;
+}
+th
+{
+ font-weight:normal;
+ color:white;
+ background-color:#59BD09;
+ opacity:0.8;
+ text-align:center;
+ height:30px;
+ font-size:large;
+ padding:5px;
+ border-left: 1px solid #808080;
+ border-right: 1px solid #808080;
+ border-bottom: 1px solid #808080;
+ white-space:pre;
+}
+table td:first-child
+{
+border-left: none;
+}
+table td:last-child
+{
+border-right: none;
+}
+table th:first-child
+{
+border-left: none;
+}
+table th:last-child
+{
+border-right: none;
+}
+tr:nth-child(2n)
+{
+ background-color: #ECECD8;
+}
+.tableStat1 {
+table-layout: fixed;
+display: inline-block;
+margin: 10px;
+vertical-align: top;
+width: 700px;
+}
+.tableStat1 td{
+  width: 100px;
+}
+.tableStat1 tbody td:nth-child(1){
+  font-weight: bold;
+}
+.tableStat2 {
+  display: inline-block;
+  margin: 10px;
+  vertical-align: top;
+  width: 1000px;
+}
+.tableStat2 tbody td:nth-child(1){
+  text-align: left;
+  font-weight: bold;
+}
+.tableStat2 thead tr th{
+  width: 200px;
+}
+.alliss tbody td:nth-child(2){
+  text-align: justify;
+  min-width: 300px;
+  white-space:normal;
+}
+.alliss tbody td:nth-child(8){
+  text-align: justify;
+  min-width: 300px;
+  white-space:normal;
+}
+.alliss {
+  margin-top: 10px;
+}  
+tr td:hover { background: #666; color: #FFF; }

@@ -1,0 +1,145 @@
+include index.jade
+div.container
+    //tables with availability
+    - statItems = typeof(tables) != 'undefined' ? tables : null
+    if statItems
+        div
+            div.tableStat1
+                table
+                    tr
+                        th(colspan = "5") Full functionality
+                    tr
+                        td= "General"
+                        each tablVal in statItems
+                            td= tablVal.platf
+                    tr
+                        if statItems.GeneralFullperc == 0
+                            td= 100 + "%"
+                        else if statItems.GeneralFullperc == 100
+                            td= 0 + "%"
+                        else
+                            td= (100 - statItems.GeneralFullperc).toFixed(3) + "%"
+                        each tablVal in statItems
+                            if tablVal.Fullperc == 0
+                                td= 100 + "%"
+                            else if tablVal.Fullperc == 100
+                                td= 0 + "%"
+                            else
+                                td= (100 - tablVal.Fullperc).toFixed(3) + "%"
+            div.tableStat1
+                table
+                    tr
+                        th(colspan = "5") Opened for customers
+                    tr
+                        td= "General"
+                        each tablVal in statItems
+                            td= tablVal.platf
+                        tr
+                            if statItems.GeneralOpenForCustperc == 0
+                                td= 100 + "%"
+                            else if statItems.GeneralOpenForCustperc == 100
+                                td= 0 + "%"
+                            else
+                                td= (100 - statItems.GeneralOpenForCustperc).toFixed(3) + "%"
+                            each tablVal in statItems
+                                if tablVal.OpenForCustperc == 0
+                                    td= 100 + "%"
+                                else if tablVal.OpenForCustperc == 100
+                                    td= 0 + "%"
+                                else
+                                    td= (100 - tablVal.OpenForCustperc).toFixed(3) + "%"
+        p  
+        div
+            div.tableStat2
+                table
+                    thead
+                        tr
+                            th
+                            th= "Planned\nfull downtime"
+                            th= "Unplanned\nfull downtime"
+                            th= "Planned\nreduced functionality"
+                            th= "Unplanned\nreduced functionality"
+                    tbody
+                        each tablVal in statItems
+                            tr
+                                td= tablVal.platf
+                                if tablVal.FullPlannedperc == 0 
+                                    td= tablVal.FullPlannedperc + "%\n"
+                                else
+                                    td= tablVal.FullPlannedperc + "%\n" + tablVal.FullPlannedmin + " min"
+                                if tablVal.FullUnplannedperc == 0 
+                                    td= tablVal.FullUnplannedperc + "%\n"
+                                else
+                                    td= tablVal.FullUnplannedperc + "%\n" + tablVal.FullUnplannedmin + " min"
+                                if tablVal.PartialPlannedperc == 0
+                                    td= tablVal.PartialPlannedperc + "%\n"
+                                else
+                                    td= tablVal.PartialPlannedperc + "%\n" + tablVal.PartialPlannedmin + " min"
+                                if tablVal.PartialUnplannedperc ==0
+                                    td= tablVal.PartialUnplannedperc + "%\n"
+                                else
+                                    td= tablVal.PartialUnplannedperc + "%\n" + tablVal.PartialUnplannedmin + " min"  
+        if memgraphs != "no graphs"
+            p
+            svg#svggeneral
+            svg#svgplatforms 
+    else
+        p
+    //table with all issues
+    - issues = typeof(items) != 'undefined' ? items : null
+    if issues
+        div
+            table.alliss
+                tr
+                    th(colspan = "8").tabtitle Planned
+                tr
+                    th= "№"
+                    th= "Description"
+                    th= "Start time"
+                    th= "End time"
+                    th= "Duration"
+                    th= "Platform"
+                    th= "Detail"
+                    th= "RCA"
+                tbody
+                    - var i = 1
+                    each val in issues
+                        if val.plan == "Planned"
+                            tr
+                                td= i
+                                td= val.summary
+                                td= val.start 
+                                td= val.end
+                                td= val.duration
+                                td= val.platf
+                                td= val.unaval
+                                td= val.rca
+                                - i++
+                tr
+                    th(colspan = "8").tabtitle Unplanned
+                tr
+                    th= "№"
+                    th= "Description"
+                    th= "Start time"
+                    th= "End time"
+                    th= "Duration"
+                    th= "Platform"
+                    th= "Detail"
+                    th= "RCA"
+                tbody
+                - i = 1
+                each val in issues
+                    if val.plan == "Unplanned"
+                        tr
+                            td= i
+                            td= val.summary
+                            td= val.start 
+                            td= val.end
+                            td= val.duration
+                            td= val.platf
+                            td= val.unaval
+                            td= val.rca
+                            - i++
+block scripts
+    script(src='/javascripts/d3.v4.min.js')
+    script(src='/javascripts/linechart.js')

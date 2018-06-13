@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  div.container
+    form(action="/results", method="post")
+      fieldset
+        legend Search parameters:
+        p
+        label Product:
+        select(name="prod")
+          if memprod == "Project1"
+            option(value="Project1", selected="selected") Project1
+          else 
+            option(value="Project1") Project1
+          if memprod == "Project2"
+            option(value="Project2", selected="selected") Project2
+          else
+            option(value="Project2") Project2
+        label Start Date:
+        input(type="date", name="startDate", value=memstart)
+        label End Date
+        input(type="date", name="endDate", value=memend)
+        p
+        input(type="submit", value="Search")
+        p
+        div
+          label.note *estimation period from 06:00 UTC to 06:00 UTC
+          select.selectgraphs(name="graphs")
+            if memgraphs == "no graphs"
+              option(value = "no graphs", selected="selected") no graphs
+            else 
+              option(value="no graphs") no graphs
+            if memgraphs == "days"
+              option(value="days", selected="selected") daily
+            else 
+              option(value="days") daily
+            if memgraphs == "weeks"
+              option(value="weeks", selected="selected") weekly
+            else
+              option(value="weeks") weekly
+    h2=title

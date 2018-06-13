@@ -1,0 +1,7 @@
+{
+   "cachepath" : "/opt/llc/statbuilder.cache/data",
+   "cachefilename" : "data.json",
+   "host" : "jira.net",
+   "protocol" : "http",
+   "base64" : "base64encrpassword"
+}
